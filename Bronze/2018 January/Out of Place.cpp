@@ -22,17 +22,8 @@ int main(void) {
   sort(b.begin() , b.end()) ;
   int64_t cnt = 0 ;
   for (int64_t i = 0 ; i < n ; ++i) {
-    if (a[i] == b[i]) {
-      continue ;
-    }
-    for (int64_t j = i + 1 ; j < n ; ++j) {
-      if (a[j] != b[j] && a[j] == b[i]) {
-        swap(a[i] , a[j]) ;
-        ++cnt ;
-        break ;
-      }
-    }
+    cnt += (a[i] != b[i]) ;
   }
-  cout << cnt ;
+  cout << cnt - (cnt != 0) ;
   return 0 ;
 }
